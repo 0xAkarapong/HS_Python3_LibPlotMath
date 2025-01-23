@@ -1,7 +1,5 @@
-import numpy
 import numpy as np
 import matplotlib.pyplot as plt
-import random
 import time
 
 def generate_random_segments(num_segments):
