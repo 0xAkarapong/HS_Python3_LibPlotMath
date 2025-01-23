@@ -1,26 +1,26 @@
+import numpy
 import numpy as np
 import matplotlib.pyplot as plt
 import random
+import time
 
 def generate_random_segments(num_segments):
-    segments = []
-    for _ in range(num_segments):
-        x1, y1, x2, y2 = random.randint(0, 10), random.randint(0, 10), random.randint(0, 10), random.randint(0, 10)
-        segments.append([x1, y1, x2, y2])
+    segments = np.random.randint(0, 11, (num_segments, 4))
     return segments
 
 def parse_segments(segments):
-    for segment in segments:
-        x1, y1, x2, y2 = segment
-        plt.plot([x1, x2], [y1, y2])
+    x = segments[:, [0, 2]].T
+    y = segments[:, [1, 3]].T
+    plt.plot(x, y)
 
 plt.xlabel('X-axis')
 plt.ylabel('Y-axis')
 plt.title('Segments Plot')
 plt.grid(True)
 
-
+t1 = time.time()
 segments = generate_random_segments(100000)
 parse_segments(segments)
-
+t2 = time.time()
 plt.show()
+print(f"Time taken: {t2-t1} seconds")
