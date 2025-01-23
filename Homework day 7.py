@@ -17,7 +17,7 @@ plt.title('Segments Plot')
 plt.grid(True)
 
 t1 = time.time()
-segments = generate_random_segments(100000)
+segments = generate_random_segments(10000)
 parse_segments(segments)
 t2 = time.time()
 plt.show()
